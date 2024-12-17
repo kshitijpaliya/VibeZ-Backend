@@ -2,9 +2,7 @@ import pg from "pg";
 import express from "express";
 import cors from "cors";
 import db from "./db.js";
-import dotenv from "dotenv"; // Import dotenv
 
-dotenv.config(); // Load environment variables
 const app = express();
 
 app.use(cors());
@@ -13,6 +11,7 @@ app.use(express.json());
 db.connect()
   .then(() => console.log("Database connected successfully"))
   .catch((err) => console.error("Database connection error:", err));
+
 app.post("/signup", async (req, res) => {
   try {
     console.log(req.body);

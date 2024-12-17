@@ -1,14 +1,12 @@
-import pg from "pg";
-import dotenv from "dotenv"; // Add dotenv to load environment variables
+const { Client } = require("pg");
 
-const db = new pg.Client({
-  user: process.env.DB_USER, // Use environment variable for user
-  password: process.env.DB_PASSWORD, // Use environment variable for password
-  host: process.env.DB_HOST, // Use environment variable for host
-  port: process.env.DB_PORT, // Use environment variable for port
-  database: process.env.DB_NAME, // Use environment variable for database name
-  ssl: {
-    rejectUnauthorized: false, // Render requires SSL, make sure to include this
-  },
+const db = new Client({
+  host: "ep-super-lake-a147s83m.ap-southeast-1.aws.neon.tech",
+  port: 5432,
+  user: "vibeZ_owner",
+  password: "vpXmPV4AZa1b",
+  database: "vibeZ",
+  ssl: { rejectUnauthorized: false }, // SSL for Neon DB
 });
+
 export default db;
