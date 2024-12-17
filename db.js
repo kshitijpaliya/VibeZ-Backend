@@ -1,10 +1,11 @@
 import pg from "pg";
-const db = new pg.Client({
-  user: "postgres",
-  password: "Kshitij15",
-  host: "localhost",
-  port: 5432,
-  database: "vibez",
-});
+import dotenv from "dotenv"; // Add dotenv to load environment variables
 
+const db = new pg.Client({
+  user: process.env.DB_USER, // Use environment variable for user
+  password: process.env.DB_PASSWORD, // Use environment variable for password
+  host: process.env.DB_HOST, // Use environment variable for host
+  port: process.env.DB_PORT, // Use environment variable for port
+  database: process.env.DB_NAME, // Use environment variable for database name
+});
 export default db;
