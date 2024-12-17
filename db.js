@@ -7,5 +7,8 @@ const db = new pg.Client({
   host: process.env.DB_HOST, // Use environment variable for host
   port: process.env.DB_PORT, // Use environment variable for port
   database: process.env.DB_NAME, // Use environment variable for database name
+  ssl: {
+    rejectUnauthorized: false, // Render requires SSL, make sure to include this
+  },
 });
 export default db;
