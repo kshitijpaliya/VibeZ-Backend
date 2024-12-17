@@ -10,8 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-db.connect();
-
+db.connect()
+  .then(() => console.log("Database connected successfully"))
+  .catch((err) => console.error("Database connection error:", err));
 app.post("/signup", async (req, res) => {
   try {
     console.log(req.body);
