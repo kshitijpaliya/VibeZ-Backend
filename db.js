@@ -5,7 +5,8 @@ const db = new pg.Client({
   user: "vibeZ_owner",
   password: "vpXmPV4AZa1b",
   database: "vibeZ",
-  ssl: { rejectUnauthorized: false }, // SSL for Neon DB
+  ssl: { rejectUnauthorized: false },// SSL for Neon DB
+  keepAlive: true,
 });
 
 export default db;
